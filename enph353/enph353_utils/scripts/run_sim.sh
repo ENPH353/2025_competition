@@ -4,6 +4,7 @@ spawn_vehicles='false'
 spawn_pedestrians='false'
 generate_plates='false'
 label_plates='false'
+wind_blowing='false'
 
 print_usage() {
   echo "Usage:"
@@ -11,14 +12,16 @@ print_usage() {
   echo "-p to spawn pedestrians"
   echo "-g to generate new license plates"
   echo "-l to spawn QR code labels"
+  echo "-w to enable wind"
 }
 
-while getopts 'vpgl' flag; do
+while getopts 'vpglw' flag; do
   case "${flag}" in
     v) spawn_vehicles='true' ;;
     p) spawn_pedestrians='true' ;;
     g) generate_plates='true' ;;
     l) label_plates='true' ;;
+    w) wind_blowing='true' ;;
     *) print_usage
        exit 1 ;;
   esac
@@ -31,11 +34,12 @@ git --no-pager log | head
 echo -e "\n************************ GIT STATUS ****************************"
 git status | head
 echo -e "\n################################################################\n"
-sleep 5s
+#sleep 5s
 
 # generate new plates if necessary
 if $generate_plates = 'true'
 then
+  echo "Generating new plates."
 	DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 	RELATIVE_PATH="/../../enph353_gazebo/scripts/plate_generator.py"
 	FULL_PATH=".$RELATIVE_PATH"
@@ -51,4 +55,4 @@ else
 fi
 
 # start the ROS environment
-roslaunch enph353_utils sim.launch spawn_pedestrians:=$spawn_pedestrians spawn_vehicles:=$spawn_vehicles
+roslaunch enph353_utils sim.launch spawn_pedestrians:=$spawn_pedestrians spawn_vehicles:=$spawn_vehicles wind_blowing:=$wind_blowing
