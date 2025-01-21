@@ -40,15 +40,16 @@ source devel/setup.bash
 * Start the simulated world
 ```
 cd src/2024_competition/enph353/enph353_utils/scripts
-./run_sim.sh -vpg
+./run_sim.sh -vpgw
 ```
 The available options are:
 
 | Option | Description      |
 |:-------|:---------------- |
-| -v     | spawn vehicle    |
-| -p     | spawn pedestrian |
 | -g     | generate new plates |
+| -p     | spawn pedestrian |
+| -v     | spawn vehicle    |
+| -w     | wind blowing     |
 
 * Start the score tracking app
 Open a new tab in the current terminal window by pressing Ctrl+Shift+T 
