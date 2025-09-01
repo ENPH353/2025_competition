@@ -1,4 +1,4 @@
-# 2024 Fizz Detective competition [IN PROGRESS]
+# 2025 Fizz Detective competition [IN PROGRESS]
 
 The repository contains the following ROS packages:
 
@@ -55,7 +55,7 @@ The available options are:
 Open a new tab in the current terminal window by pressing Ctrl+Shift+T 
 The new terminal should already be in:
 ```
-~/ros_ws/src/2024_competition/enph353/enph353_utils/scripts
+~/ros_ws/src/2025_competition/enph353/enph353_utils/scripts
 ```
 Launch the score tracking app:
 ```
